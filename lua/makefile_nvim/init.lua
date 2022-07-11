@@ -1,5 +1,5 @@
 M = {}
-M.opts = {}
+-- M.opts = {} -- I don't think this is necessary, but put here just in case
 
 M.setup = function(opts)
 	opts = opts or {}

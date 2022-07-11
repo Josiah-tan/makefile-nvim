@@ -1,9 +1,8 @@
 * Makefile-nvim
-Telescope integration with makefiles!
+Telescope integration with makefiles and tox!
 * Plugin Dependencies and Installation
 - Telescope and its dependencies
-  - Note that telescope is neovim 0.5 + only
-    - so build your neovim from source, or get the latest release!
+	- so build your neovim from source, or get the latest release!
 - Here is an example using [[https://github.com/junegunn/vim-plug][vim-plug]] here
   - but feel free to use whatever plugin manager that you like!
 #+BEGIN_SRC vim
@@ -35,7 +34,10 @@ require("makefile_nvim").setup({term = 1})
 - below are some mappings that might be useful to use
 	- note that if `selection` is a string, the make command combined with the `selection` is sent to the terminal without evoking telescope
 #+BEGIN_SRC lua
-vim.api.nvim_set_keymap("n", "<Leader>mf", ':lua require("makefile_nvim.builtin").makeFile({term = 1})<CR>', {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("n", "<Leader>ma", ':lua require("makefile_nvim.builtin").makeFile({term = 1, selection = "all"})<CR>', {noremap = true, silent = true, expr = false})
-vim.api.nvim_set_keymap("n", "<Leader>mc", ':lua require("makefile_nvim.builtin").makeFile({term = 1, selection = "clean"})<CR>', {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("n", "<Leader>mf", ':lua require("makefile_nvim.make").run({term = 1})<CR>', {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("n", "<Leader>ma", ':lua require("makefile_nvim.make").run({term = 1, selection = "all"})<CR>', {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("n", "<Leader>mc", ':lua require("makefile_nvim.make").run({term = 1, selection = "clean"})<CR>', {noremap = true, silent = true, expr = false})
+
+vim.api.nvim_set_keymap("n", "<Leader>txf", ':lua require("makefile_nvim.tox").run({term = 1})<CR>', {noremap = true, silent = true, expr = false})
+vim.api.nvim_set_keymap("n", "<Leader>txt", ':lua require("makefile_nvim.tox").run({term = 1, selection = "test"})<CR>', {noremap = true, silent = true, expr = false})
 #+END_SRC

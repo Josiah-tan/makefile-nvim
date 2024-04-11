@@ -13,7 +13,7 @@ local function makeSelection(selection, term)
 	if selection ~= "" and not utils.tableContains(extra_commands, selection) then
 		selection = "-e "..selection
 	end
-	require("harpoon.term").sendCommand(term, "tox %s \n", selection)
+	require("harpoon.term").sendCommand(term, "tox %s \r", selection)
 	require("harpoon.term").gotoTerminal(term)
 end
 
